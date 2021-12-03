@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_UnsplashToyProject_UnsplashToyProjectUITests : NSObject
+@end
+@implementation PodsDummy_Pods_UnsplashToyProject_UnsplashToyProjectUITests
+@end
