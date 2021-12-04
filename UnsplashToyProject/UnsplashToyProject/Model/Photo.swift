@@ -8,19 +8,21 @@
 import Foundation
 
 struct Photo: Codable {
-    let urls: [[ImageSize:URL]]
+    let image: PhotoImageURL
     let photographer: Photographer
+    let timestamp: Date
     
     enum CodingKeys: String, CodingKey {
-        case urls
+        case image = "urls"
         case photographer = "user"
+        case timestamp = "created_at"
     }
+}
+
+struct PhotoImageURL: Codable {
+    let url: URL
     
-    enum ImageSize: String, Codable {
-        case raw = "raw"
-        case full = "full"
-        case regular = "regular"
-        case small = "small"
-        case thumb = "thumb"
+    enum CodingKeys: String, CodingKey {
+        case url = "regular"
     }
 }

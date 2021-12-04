@@ -10,27 +10,18 @@ import UIKit
 
 struct Photographer: Codable {
     let name: String
-    let images: [[ImageSize:URL]]
+    let image: ProfileImageURL
     
     enum CodingKeys: String, CodingKey {
         case name
-        case images = "profile_image"
+        case image = "profile_image"
     }
+}
+
+struct ProfileImageURL: Codable {
+    let url: URL
     
-    enum ImageSize: String, Codable {
-        case small = "small"
-        case medium = "medium"
-        case large = "large"
-    }
-    
-    subscript(of size: ImageSize) -> URL? {
-        switch size {
-        case .small:
-            return self.images[0][.small]
-        case .medium:
-            return self.images[1][.medium]
-        case .large:
-            return self.images[2][.large]
-        }
+    enum CodingKeys: String, CodingKey {
+        case url = "medium"
     }
 }
